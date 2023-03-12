@@ -45,6 +45,23 @@ public class UserRegistrationValidation {
             user.getEmailId();
         }
     }
+
+    public void getPassword()
+    {
+        UserRegistrationValidation user=new UserRegistrationValidation();
+        user userDetails=new user();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Please enter the Password");
+        userDetails.setPassword(scanner.nextLine());
+
+        Pattern pattern=Pattern.compile("((?=.*[a-z])(?=.*[A-Z])).{8,}");
+        Matcher matcher=pattern.matcher(userDetails.getPassword());
+        boolean matchPassword=matcher.matches();
+        if(!matchPassword) {
+            System.out.println("Please enter correct password with  minimum 8 characters password must contain 1 Upper Case");
+            user.getPassword();
+        }
+    }
     public void getMobileNumber()
     {
         UserRegistrationValidation user=new UserRegistrationValidation();
