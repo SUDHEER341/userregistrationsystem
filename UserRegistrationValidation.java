@@ -54,11 +54,12 @@ public class UserRegistrationValidation {
         System.out.println("Please enter the Password");
         userDetails.setPassword(scanner.nextLine());
 
-        Pattern pattern=Pattern.compile("((?=.*[a-z])(?=.*[A-Z])).{8,}");
-        Matcher matcher=pattern.matcher(userDetails.getPassword());
-        boolean matchPassword=matcher.matches();
+        Pattern p=Pattern.compile("((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])).{8,}");
+        Matcher m=p.matcher(userDetails.getPassword());
+        boolean matchPassword=m.matches();
         if(!matchPassword) {
-            System.out.println("Please enter correct password with  minimum 8 characters password must contain 1 Upper Case");
+            System.out.println("Please enter correct password with  minimum 8 characters and password " +
+                                "must contain 1 Upper Case , one numeric value");
             user.getPassword();
         }
     }
